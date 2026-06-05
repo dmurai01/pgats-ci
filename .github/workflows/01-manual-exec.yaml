@@ -42,3 +42,14 @@ jobs:
       # execução dos testes e2e
       - name: Executando os testes e2e
         run: yarn run e2e  
+
+      # exibe resultado dos testes
+      - name: Publicar Resultados dos Testes
+        uses: EnricoMi/publish-unit-test-result-action@v2
+        if: always()  # Executa sempre, mesmo se testes falharem
+        with:
+          files: |
+            results.xml
+            test-results/**/*.xml
+          check_name: "E2E Test Results"
+          comment_mode: "always"
