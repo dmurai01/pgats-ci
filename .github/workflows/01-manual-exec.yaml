@@ -15,6 +15,10 @@ jobs:
   # nome do job
   e2e-tests:
     # maquina onde o job vai rodar
+    permissions:
+      contents: read
+      checks: write
+      pull-requests: write
     runs-on: ubuntu-latest
 
     # passos do job
@@ -47,6 +51,8 @@ jobs:
       - name: Publicar Resultados dos Testes
         uses: EnricoMi/publish-unit-test-result-action@v2
         if: always()  # Executa sempre, mesmo se testes falharem
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           files: |
             results.xml
