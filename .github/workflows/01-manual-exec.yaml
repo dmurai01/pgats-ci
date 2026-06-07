@@ -46,19 +46,6 @@ jobs:
       - name: Executando os testes e2e
         run: yarn run e2e  
 
-      # exibe resultado dos testes
-      - name: Publicar Resultados dos Testes
-        uses: EnricoMi/publish-unit-test-result-action@v2
-        if: always()  # Executa sempre, mesmo se testes falharem
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          files: |
-            results.xml
-            test-results/**/*.xml
-          check_name: "E2E Test Results"
-          comment_mode: "always"  
-
   # nome do job
   e2e-tests:
     # maquina onde o job vai rodar
