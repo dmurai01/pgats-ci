@@ -47,8 +47,11 @@ jobs:
       #   run: yarn run e2e  
 
       - name: Executando no self-hosted runner
-        run: hostname  
-             pwd
+        run: |
+          echo "Executando no self-hosted runner"
+          hostname
+          pwd
+
 
       # # exibe resultado dos testes
       # - name: Publicar Resultados dos Testes
