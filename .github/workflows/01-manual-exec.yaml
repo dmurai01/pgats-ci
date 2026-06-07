@@ -46,6 +46,11 @@ jobs:
       # execução dos testes e2e
       - name: Executando os testes e2e
         run: yarn run e2e  
+      # execução dos testes e2e
+
+      - name: Executando no self-hosted runner
+        run: hostname  
+             pwd
 
       # exibe resultado dos testes
       - name: Publicar Resultados dos Testes
